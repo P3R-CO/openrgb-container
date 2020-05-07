@@ -1,7 +1,7 @@
 ## ![P3R OpenRGB](https://raw.githubusercontent.com/P3R-CO/unraid/master/OpenRGB-P3R-256px.png)
 ## P3R OpenRGB
 
-RGB software...  Every manufacturer has their own app, their own brand, their own style.  Most of these apps are windows only, and usually only support their own brand hardware.  OpenRGB wws developed as a way to bypass this issue, an P3R took the initiative to turn the application into a container for systems operating as hyervisors.  The primary focus of this project was to give users of UnraidOS a way to edit their RGB configurations, with s little effort as necessary.
+RGB software...  Every manufacturer has their own app, their own brand, their own style.  Most of these apps are windows only, and usually only support their own brands hardware.  OpenRGB was developed as a way to bypass this issue, and P3R took the initiative to turn the application into a container for systems operating as hyervisors.  The primary focus of this project was to give users of Unraid OS a way to edit their RGB configurations, with s little effort as necessary.
 
 ## Supported Devices
 
@@ -21,7 +21,7 @@ As of now, only Gigabyte RGB Fusion 2.0 boards have been reported to have issues
 
   *  ASUS and ASRock motherboards have their RGB controller on an SMBus interface that is not accessible by an unmodified Linux kernel (for now).  I am working on getting patches submitted upstream, but for now you must patch your kernel with the provided OpenRGB.patch file.
 
-  *  Allowing access to SMBus from UnraiOS Console
+  *  Allowing access to SMBus from Unraid OS Console
 
       1. Load the i2c-dev module: `sudo modprobe i2c-dev`
 
@@ -33,9 +33,15 @@ As of now, only Gigabyte RGB Fusion 2.0 boards have been reported to have issues
               - `modprobe i2c-piix4` 
               - Unmodified kernel will have one interface, patched kernel will have two.  The first at 0x0B00 and the second at 0x0B20.  The 0x0B20 interface is for motherboard LEDs.
 
+  *  Modprobe will have to be run on each Unraid server reboot, or you can add the drivers to your 'go' file to automatically do this.:
+      '''# modprobe for each sensor
+           modprobe i2c-dev
+           modprobe i2c-i801
+           modprobe <sensor3>'''
+
   *  Instructions on patching the kernel:
       - https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/OpenRGB-Kernel-Patch
-       
+      
   *  Some Gigabyte/Aorus motherboards have an ACPI conflict with the SMBus controller.
       - Add `acpi_enforce_resources=lax` to your kernel command line and reboot.  The controller should now show up.
 
