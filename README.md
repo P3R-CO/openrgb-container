@@ -23,18 +23,18 @@ As of now, only Gigabyte RGB Fusion 2.0 boards have been reported to have issues
 
   *  Allowing access to SMBus from Unraid OS Console
 
-      1. Load the i2c-dev module: `sudo modprobe i2c-dev`
+      1. Load the i2c-dev module: `modprobe i2c-dev`
 
       2. Load the i2c driver for your chipset:
           -  Intel:
-              - `sudo modprobe i2c-i801`
-              - `sudo modprobe i2c-nct6775` - Secondary controller for motherboard LEDs (requires a kernel patch, not yet tested)
+              - `modprobe i2c-i801`
+              - `modprobe i2c-nct6775` - Secondary controller for motherboard LEDs (requires a kernel patch, not yet tested)
           -  AMD:
               - `modprobe i2c-piix4` 
               - Unmodified kernel will have one interface, patched kernel will have two.  The first at 0x0B00 and the second at 0x0B20.  The 0x0B20 interface is for motherboard LEDs.
 
   *  Modprobe will have to be run on each Unraid server reboot, or you can add the drivers to your 'go' file to automatically do this.:
-      '''# modprobe for each sensor
+      ```# modprobe for each sensor
            modprobe i2c-dev
            modprobe i2c-i801
            modprobe <sensor3>'''
