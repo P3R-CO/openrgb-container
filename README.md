@@ -37,7 +37,7 @@ As of now, only Gigabyte RGB Fusion 2.0 boards have been reported to have issues
       ```# modprobe for each sensor
            modprobe i2c-dev
            modprobe i2c-i801
-           modprobe <sensor3>'''
+           modprobe <sensor3>```
 
   *  Instructions on patching the kernel:
       - https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/OpenRGB-Kernel-Patch
