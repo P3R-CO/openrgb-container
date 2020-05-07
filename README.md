@@ -34,12 +34,12 @@ As of now, only Gigabyte RGB Fusion 2.0 boards have been reported to have issues
               - Unmodified kernel will have one interface, patched kernel will have two.  The first at 0x0B00 and the second at 0x0B20.  The 0x0B20 interface is for motherboard LEDs.
 
   *  Modprobe will have to be run on each Unraid server reboot, or you can add the drivers to your 'go' file to automatically do this.:
-      ~~~~~
+      ```
            # modprobe for each sensor
            modprobe i2c-dev
            modprobe i2c-i801
            modprobe <sensor3>
-     ~~~~
+     ```
 
   *  Instructions on patching the kernel:
       - https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/OpenRGB-Kernel-Patch
