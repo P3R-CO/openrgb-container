@@ -3,6 +3,9 @@ FROM jlesage/baseimage-gui:ubuntu-18.04
 MAINTAINER Poseidon's 3 Rings
 
 ENV APP_NAME="P3R OpenRGB"
+ENV KEEP_APP_RUNNING=1
+ENV ENABLE_CJK_FONT=1
+ENV LANG=en_US.UTF-8
 
 WORKDIR /usr/src/openrgb
 
@@ -17,7 +20,9 @@ RUN apt-get update \
 	libqt5core5a \
 	libqt5gui5 \
 	usbutils \
-	i2c-tools
+	i2c-tools \
+	locales \
+	&& locale-gen en_US.UTF-8
 	
 RUN \
 	APP_ICON_URL=https://raw.githubusercontent.com/P3R-CO/unraid/master/OpenRGB-P3R-256px.png && \
