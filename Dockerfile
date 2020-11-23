@@ -1,7 +1,5 @@
 FROM jlesage/baseimage-gui:ubuntu-18.04
 
-MAINTAINER Poseidon's 3 Rings
-
 ENV APP_NAME="P3R OpenRGB"
 ENV KEEP_APP_RUNNING=1
 ENV ENABLE_CJK_FONT=1
@@ -22,6 +20,7 @@ RUN apt-get update \
 	usbutils \
 	i2c-tools \
 	locales \
+	libhidapi-dev \
 	&& locale-gen en_US.UTF-8
 	
 RUN \
