@@ -21,6 +21,8 @@ RUN apt-get update \
 	i2c-tools \
 	locales \
 	libhidapi-dev \
+	libmbedx509-0 \
+	libmbedtls-dev \
 	&& locale-gen en_US.UTF-8
 	
 RUN \
