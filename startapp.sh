@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/src/openrgb/OpenRGB
+exec /usr/src/openrgb/OpenRGB --gui --server --server-port 6742
