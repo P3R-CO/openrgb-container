@@ -10,6 +10,8 @@ WORKDIR /usr/src/openrgb
 COPY OpenRGB .
 COPY startapp.sh /startapp.sh
 
+RUN touch /config/xdg/config/OpenRGB/default.orp
+
 RUN chmod +x /usr/src/openrgb/OpenRGB
 RUN apt-get update \
 	&& apt-get -y install \
@@ -21,6 +23,8 @@ RUN apt-get update \
 	i2c-tools \
 	locales \
 	libhidapi-dev \
+	libmbedx509-0 \
+	libmbedtls-dev \
 	&& locale-gen en_US.UTF-8
 	
 RUN \

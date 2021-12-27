@@ -1,8 +1,3 @@
-#!/bin/bash
+#!/bin/sh
+exec /usr/src/openrgb/OpenRGB --gui --server --server-port "${SVR_PORT}" --profile "${DEFAULT_PROFILE}"
 
-if [ -z "${DEFAULT_PROFILE}" ]
-then
-	exec /usr/src/openrgb/OpenRGB
-else
-	exec /usr/src/openrgb/OpenRGB --server --gui --profile "${DEFAULT_PROFILE}"
-fi
