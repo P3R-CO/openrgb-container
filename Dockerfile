@@ -10,7 +10,7 @@ WORKDIR /usr/src/openrgb
 COPY OpenRGB .
 COPY startapp.sh /startapp.sh
 
-RUN touch /config/xdg/config/OpenRGB/default.orp
+RUN touch /config/OpenRGB/default.orp
 
 RUN chmod +x /usr/src/openrgb/OpenRGB
 RUN apt-get update \
