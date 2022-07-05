@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:ubuntu-18.04
+FROM jlesage/baseimage-gui:ubuntu-20.04
 
 ENV APP_NAME="P3R OpenRGB"
 ENV KEEP_APP_RUNNING=1
