@@ -7,7 +7,7 @@ ENV LANG=en_US.UTF-8
 
 WORKDIR /usr/src/openrgb
 
-COPY OpenRGB .
+COPY openrgb .
 COPY startapp.sh /startapp.sh
 
 COPY default.orp /config/xdg/config/OpenRGB/default.orp
